@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
-<script src="faq.js"></script>
 </head>
 <body>
  <main class="faq-container">
@@ -27,7 +26,7 @@
      <h3 class="heading">FAQ</h3>
      <div class="accordion-div">
       <button  type="button" class="accordion"> How many team members can I invite?
-    <img  class="arrow"src="/images/icon-arrow-down.svg">
+    <img  class="arrow"src="./images/icon-arrow-down.svg">
       </button>
       <div class="panel">
         <p> You can invite up to 2 additional users on the Free plan. There is no limit on 
@@ -35,14 +34,14 @@
       </div>
     <hr class="line">
       <button class="accordion"> What is the maximum file upload size?
-        <img  class="arrow"src="/images/icon-arrow-down.svg">
+        <img  class="arrow"src="./images/icon-arrow-down.svg">
       </button>
       <div class="panel">
         <p>  No more than 2GB. All files in your account must fit your allotted storage space.</p>
       </div>
     <hr class="line">
       <button class="accordion"> How do I reset my password?
-        <img  class="arrow"src="/images/icon-arrow-down.svg">
+        <img  class="arrow"src="./images/icon-arrow-down.svg">
       </button>
       <div class="panel">
         <p > Click “Forgot password” from the login page or “Change password” from your profile page.
@@ -50,14 +49,14 @@
       </div>
       <hr class="line">
       <button class="accordion"> can i cancel my subscription? 
-        <img  class="arrow"src="/images/icon-arrow-down.svg">
+        <img  class="arrow"src="./images/icon-arrow-down.svg">
       </button>
       <div class="panel">
         <p>Yes! Send us a message and we’ll process your request no questions asked.</p>
       </div>
     <hr class="line">
       <button class="accordion"> Do you provide additional support?
-        <img  class="arrow"src="/images/icon-arrow-down.svg">
+        <img  class="arrow"src="./images/icon-arrow-down.svg">
       </button>
       <div class="panel">
         <p> Chat and email support is available 24/7. Phone lines are open during normal business hours.</p>
@@ -68,7 +67,30 @@
      </section>
   </div>
   <div class="box-div"></div>
+
   </div>
  </main>
+ <script>
+   var acc = document.getElementsByClassName("accordion");
+ var i;
+ 
+ for (i = 0; i < acc.length; i++) {
+ acc[i].addEventListener("click", function() {
+ 
+ var panel = this.nextElementSibling;
+ if (panel.style.maxHeight){
+   panel.style.maxHeight = null;
+ } else {
+   let active = document.querySelectorAll(".accordion-div .accordion.active");
+   for(let j = 0; j < active.length; j++){
+     active[j].classList.remove("active");
+     active[j].nextElementSibling.style.maxHeight = null;
+   }
+   this.classList.toggle("active");
+   panel.style.maxHeight = panel.scrollHeight + "px";
+ }
+ });
+ }
+ </script>
 </body>
 </html>
